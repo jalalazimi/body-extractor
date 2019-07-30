@@ -22,6 +22,8 @@ const fetch = async function (url) {
     html: content
   });
 
+  const keywordsArray = unfluffContent.keywords ? unfluffContent.keywords.split(', ') : [];
+
   const obj = {
     author: readability.byline,
     title: readability.title,
@@ -34,7 +36,7 @@ const fetch = async function (url) {
     direction: mercury.direction,
     favicon: mercury.favicon,
     word_count: mercury.word_count,
-    tags: [...unfluffContent.tags, ...Array.from(new Set(unfluffContent.keywords.split(', ')))],
+    tags: Array.from(new Set([...unfluffContent.tags, ...keywordsArray])),
     publisher: unfluffContent.publisher
   }
   console.log('unfluffContent', obj);
