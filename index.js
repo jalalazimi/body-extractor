@@ -1,10 +1,10 @@
-var JSDOM = require('jsdom').JSDOM;
-const argv = require('yargs').argv;
-var puppeteer = require('puppeteer');
-var Readability = require('Readability');
-var unfluff = require('unfluff');
-var Mercury = require('@postlight/mercury-parser');
-
+const JSDOM = require('jsdom').JSDOM;
+const puppeteer = require('puppeteer');
+const Readability = require('Readability');
+const unfluff = require('unfluff');
+const Mercury = require('@postlight/mercury-parser');
+const express = require('express')
+const app = express()
 
 const fetch = async function (url) {
   console.log('Extracting...');
@@ -24,7 +24,7 @@ const fetch = async function (url) {
 
   const keywordsArray = unfluffContent.keywords ? unfluffContent.keywords.split(', ') : [];
 
-  const obj = {
+  return {
     author: readability.byline,
     title: readability.title,
     article: readability.textContent,
@@ -39,10 +39,11 @@ const fetch = async function (url) {
     tags: Array.from(new Set([...unfluffContent.tags, ...keywordsArray])),
     publisher: unfluffContent.publisher
   }
-  console.log('unfluffContent', obj);
-
 
 };
 
-
-fetch(argv.url);
+app.get('/', async (req, res) => {
+  const data = await fetch(req.query.url);
+  res.send(data)
+});
+app.listen(8080);
