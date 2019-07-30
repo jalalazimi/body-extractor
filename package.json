@@ -1,0 +1,27 @@
+{
+  "name": "extractor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@postlight/mercury-parser": "^2.1.1",
+    "jsdom": "^15.1.1",
+    "metascraper": "^5.6.3",
+    "metascraper-author": "^5.6.3",
+    "metascraper-date": "^5.6.3",
+    "metascraper-description": "^5.6.3",
+    "metascraper-image": "^5.6.3",
+    "metascraper-readability": "^5.6.3",
+    "metascraper-url": "^5.6.3",
+    "puppeteer": "^1.19.0",
+    "readability": "https://github.com/mozilla/readability.git",
+    "unfluff": "^3.2.0",
+    "yargs": "^13.3.0"
+  }
+}
