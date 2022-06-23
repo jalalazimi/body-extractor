@@ -13,7 +13,7 @@
   "dependencies": {
     "@postlight/mercury-parser": "^2.1.1",
     "express": "^4.17.1",
-    "jsdom": "^15.1.1",
+    "jsdom": "^16.5.0",
     "metascraper": "^5.6.3",
     "metascraper-author": "^5.6.3",
     "metascraper-date": "^5.6.3",
